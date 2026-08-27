@@ -1,0 +1,282 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.about-page {
+  position: relative;
+  min-height: 100vh;
+  padding-top: 120px;
+}
+
+.page-label {
+  display: inline-block;
+  font-size: $fs-xs;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: $primary;
+  margin-bottom: $spacing-md;
+}
+
+// ─── About grid ───────────────────────────
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-4xl;
+  margin-bottom: $spacing-5xl;
+  align-items: start;
+
+  @include respond-to('lg') {
+    grid-template-columns: 1fr 1.5fr;
+  }
+}
+
+// ─── Visual ───────────────────────────────
+.about-visual {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-2xl;
+}
+
+.avatar-wrapper {
+  position: relative;
+  width: 240px;
+  height: 240px;
+}
+
+.avatar-ring {
+  position: absolute;
+  inset: -8px;
+  border-radius: 50%;
+  background: $gradient-gold;
+  padding: 2px;
+  animation: rotateIn 1s ease, pulse-gold 4s ease-in-out infinite;
+}
+
+.avatar-placeholder {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: $gradient-dark;
+  border: 4px solid $surface;
+  @include flex-center;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+
+  svg {
+    width: 120px;
+    height: 120px;
+    color: rgba($primary, 0.3);
+  }
+}
+
+.avatar-badge {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: $spacing-xs $spacing-md;
+  background: rgba($success, 0.15);
+  border: 1px solid rgba($success, 0.4);
+  border-radius: $radius-full;
+  font-size: $fs-xs;
+  font-weight: 600;
+  color: $success;
+  white-space: nowrap;
+  z-index: 2;
+  backdrop-filter: blur(10px);
+}
+
+// ─── Quick facts ──────────────────────────
+.quick-facts {
+  @include glass-card;
+  padding: $spacing-xl;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.fact-item {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  padding: $spacing-sm 0;
+  border-bottom: 1px solid $border;
+
+  &:last-child { border-bottom: none; }
+
+  .fact-icon {
+    font-size: 1.2rem;
+    width: 28px;
+    text-align: center;
+  }
+
+  div {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+
+  .fact-label {
+    font-size: $fs-xs;
+    color: $text-muted;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  .fact-value {
+    font-size: $fs-sm;
+    font-weight: 600;
+    color: $text;
+  }
+}
+
+// ─── Bio ──────────────────────────────────
+.about-content {
+  h2 {
+    font-family: $font-display;
+    font-size: $fs-2xl;
+    font-weight: 700;
+    margin-bottom: $spacing-xl;
+    line-height: 1.3;
+  }
+
+  p {
+    font-size: $fs-base;
+    color: $text-muted;
+    line-height: 1.8;
+    margin-bottom: $spacing-lg;
+
+    strong {
+      color: $text;
+      font-weight: 600;
+    }
+  }
+}
+
+.about-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-md;
+  margin-top: $spacing-xl;
+}
+
+// ─── Timeline ─────────────────────────────
+.timeline-section {
+  padding-top: $spacing-5xl;
+  border-top: 1px solid $border;
+}
+
+.timeline-title {
+  font-family: $font-display;
+  font-size: $fs-2xl;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: $spacing-4xl;
+}
+
+.timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-2xl;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.timeline-line {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: $border;
+  transform: translateX(-50%);
+  display: none;
+
+  @include respond-to('md') {
+    display: block;
+  }
+}
+
+.timeline-item {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+  position: relative;
+
+  @include respond-to('md') {
+    flex-direction: row;
+    align-items: flex-start;
+    width: 50%;
+    padding-right: $spacing-3xl;
+
+    &.right {
+      align-self: flex-end;
+      padding-right: 0;
+      padding-left: $spacing-3xl;
+      text-align: left;
+
+      .timeline-dot {
+        right: auto;
+        left: -9px;
+      }
+    }
+  }
+}
+
+.timeline-content {
+  @include glass-card;
+  padding: $spacing-xl;
+  flex: 1;
+
+  .timeline-year {
+    font-family: $font-mono;
+    font-size: $fs-xs;
+    color: $primary;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+  }
+
+  h3 {
+    font-size: $fs-base;
+    font-weight: 700;
+    color: $text;
+    margin: $spacing-xs 0;
+  }
+
+  .timeline-org {
+    font-size: $fs-xs;
+    color: $text-muted;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    display: block;
+    margin-bottom: $spacing-sm;
+  }
+
+  p {
+    font-size: $fs-sm;
+    color: $text-muted;
+    line-height: 1.7;
+  }
+}
+
+.timeline-dot {
+  display: none;
+
+  @include respond-to('md') {
+    display: block;
+    position: absolute;
+    right: -9px;
+    top: $spacing-xl;
+    width: 18px;
+    height: 18px;
+    background: $primary;
+    border-radius: 50%;
+    border: 3px solid $secondary;
+    box-shadow: 0 0 0 4px rgba($primary, 0.2);
+    z-index: 1;
+  }
+}

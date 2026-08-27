@@ -1,0 +1,269 @@
+// ============================================
+// GLOBAL STYLES — Portfolio Kerrian
+// ============================================
+@use 'styles/variables' as *;
+@use 'styles/mixins' as *;
+@use 'styles/animations';
+
+// Google Fonts
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,900;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+// ─── Reset ────────────────────────────────
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: $font-body;
+  background-color: $secondary;
+  color: $text;
+  line-height: 1.7;
+  overflow-x: hidden;
+  @include custom-scrollbar;
+}
+
+// ─── Typography ───────────────────────────
+h1, h2, h3, h4, h5 {
+  font-family: $font-display;
+  line-height: 1.2;
+  color: $text;
+}
+
+p { color: $text-muted; }
+
+a {
+  color: $primary;
+  text-decoration: none;
+  transition: $transition-fast;
+  &:hover { color: $primary-light; }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+code, pre {
+  font-family: $font-mono;
+}
+
+// ─── Selection ────────────────────────────
+::selection {
+  background: rgba($primary, 0.3);
+  color: $text;
+}
+
+// ─── Scrollbar ────────────────────────────
+:root {
+  @include custom-scrollbar;
+}
+
+// ─── Buttons ──────────────────────────────
+.btn-primary {
+  @include btn-base;
+  background: $gradient-gold;
+  color: $secondary;
+  box-shadow: 0 4px 15px rgba($primary, 0.3);
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba($primary, 0.4);
+    color: $secondary;
+  }
+
+  &:active { transform: translateY(0); }
+  @include focus-ring;
+}
+
+.btn-outline {
+  @include btn-base;
+  background: transparent;
+  color: $primary;
+  border: 1.5px solid $primary;
+
+  &:hover {
+    background: rgba($primary, 0.1);
+    transform: translateY(-2px);
+    color: $primary-light;
+    border-color: $primary-light;
+  }
+
+  @include focus-ring;
+}
+
+.btn-ghost {
+  @include btn-base;
+  background: transparent;
+  color: $text-muted;
+  padding: $spacing-sm $spacing-md;
+
+  &:hover {
+    color: $primary;
+    background: rgba($primary, 0.08);
+  }
+}
+
+// ─── Layout helpers ───────────────────────
+.container {
+  @include container;
+}
+
+.section {
+  @include section;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: $spacing-4xl;
+
+  h2 {
+    @include section-title;
+  }
+
+  .section-line {
+    width: 60px;
+    height: 3px;
+    background: $gradient-gold;
+    margin: $spacing-md auto $spacing-lg;
+    border-radius: $radius-full;
+    animation: drawLine 0.8s ease forwards;
+  }
+
+  p {
+    max-width: 600px;
+    margin: 0 auto;
+    font-size: $fs-md;
+    color: $text-muted;
+  }
+}
+
+// ─── Card base ────────────────────────────
+.card {
+  @include glass-card;
+  @include hover-lift;
+  padding: $spacing-xl;
+}
+
+// ─── Badge ────────────────────────────────
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: $spacing-xs;
+  padding: $spacing-xs $spacing-md;
+  background: rgba($primary, 0.1);
+  border: 1px solid rgba($primary, 0.25);
+  border-radius: $radius-full;
+  font-size: $fs-xs;
+  font-weight: 600;
+  color: $primary-light;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  transition: $transition-fast;
+
+  &:hover {
+    background: rgba($primary, 0.2);
+    border-color: rgba($primary, 0.4);
+  }
+}
+
+// ─── Divider ──────────────────────────────
+.divider {
+  width: 100%;
+  height: 1px;
+  background: $border;
+  margin: $spacing-2xl 0;
+}
+
+// ─── Tag ──────────────────────────────────
+.tag {
+  display: inline-block;
+  padding: 3px 10px;
+  background: rgba($surface-alt, 0.6);
+  border: 1px solid $border;
+  border-radius: $radius-sm;
+  font-family: $font-mono;
+  font-size: $fs-xs;
+  color: $text-muted;
+}
+
+// ─── Toast notification ───────────────────
+.toast {
+  position: fixed;
+  bottom: $spacing-xl;
+  right: $spacing-xl;
+  padding: $spacing-md $spacing-xl;
+  border-radius: $radius-md;
+  font-size: $fs-sm;
+  font-weight: 600;
+  z-index: $z-toast;
+  animation: slideDown 0.3s ease;
+  box-shadow: $shadow-lg;
+
+  &.toast-success {
+    background: rgba($success, 0.15);
+    border: 1px solid rgba($success, 0.4);
+    color: $success;
+  }
+
+  &.toast-error {
+    background: rgba($error, 0.15);
+    border: 1px solid rgba($error, 0.4);
+    color: $error;
+  }
+}
+
+// ─── Background decorations ───────────────
+.bg-grid {
+  position: fixed;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba($primary, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba($primary, 0.03) 1px, transparent 1px);
+  background-size: 50px 50px;
+  pointer-events: none;
+  z-index: 0;
+}
+
+// ─── Scroll indicator ─────────────────────
+.scroll-indicator {
+  position: absolute;
+  bottom: $spacing-2xl;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: $spacing-sm;
+  color: $text-muted;
+  font-size: $fs-xs;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  animation: float 2s ease-in-out infinite;
+
+  .scroll-line {
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(to bottom, $primary, transparent);
+  }
+}
+
+// ─── Highlight text ───────────────────────
+.text-gold {
+  @include gold-text;
+}
+
+.text-muted { color: $text-muted; }
+.text-light { color: $text-light; }
+
+// ─── Page transition ──────────────────────
+.page-enter {
+  animation: fadeInUp 0.5s ease forwards;
+}

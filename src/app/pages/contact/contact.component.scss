@@ -1,0 +1,224 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.contact-page {
+  position: relative;
+  min-height: 100vh;
+  padding-top: 120px;
+}
+
+.page-label {
+  display: inline-block;
+  font-size: $fs-xs;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: $primary;
+  margin-bottom: $spacing-md;
+}
+
+// ─── Grid ─────────────────────────────────
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-3xl;
+
+  @include respond-to('lg') {
+    grid-template-columns: 1fr 1.6fr;
+    align-items: start;
+  }
+}
+
+// ─── Contact info ─────────────────────────
+.contact-info {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-md;
+}
+
+.contact-item {
+  display: flex;
+  align-items: center;
+  gap: $spacing-lg;
+  padding: $spacing-lg;
+  @include glass-card;
+  text-decoration: none;
+  transition: $transition-normal;
+
+  &:hover {
+    transform: translateX(6px);
+    border-color: $border-hover;
+  }
+}
+
+.contact-icon {
+  @include flex-center;
+  width: 48px;
+  height: 48px;
+  background: rgba($primary, 0.1);
+  border: 1px solid $border;
+  border-radius: $radius-md;
+  color: $primary;
+  flex-shrink: 0;
+
+  svg { width: 20px; height: 20px; }
+}
+
+.contact-item-label {
+  display: block;
+  font-size: $fs-xs;
+  color: $text-muted;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: 2px;
+}
+
+.contact-item-value {
+  display: block;
+  font-size: $fs-sm;
+  font-weight: 600;
+  color: $text;
+}
+
+// ─── Availability ─────────────────────────
+.availability-card {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  padding: $spacing-lg;
+  @include glass-card;
+  border-color: rgba($success, 0.3);
+  background: rgba($success, 0.05);
+  margin-top: $spacing-sm;
+
+  h4 {
+    font-size: $fs-sm;
+    font-weight: 700;
+    color: $success;
+    margin-bottom: 4px;
+  }
+
+  p {
+    font-size: $fs-xs;
+    color: $text-muted;
+  }
+}
+
+.availability-dot {
+  width: 12px;
+  height: 12px;
+  background: $success;
+  border-radius: 50%;
+  flex-shrink: 0;
+  animation: pulse-gold 2s ease-in-out infinite;
+  box-shadow: 0 0 0 0 rgba($success, 0.4);
+
+  @keyframes pulse-gold {
+    0%, 100% { box-shadow: 0 0 0 0 rgba($success, 0.4); }
+    50%       { box-shadow: 0 0 0 8px rgba($success, 0); }
+  }
+}
+
+// ─── Form ─────────────────────────────────
+.contact-form-wrapper {
+  @include glass-card;
+  padding: $spacing-2xl;
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-xl;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-xl;
+
+  @include respond-to('sm') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+
+  label {
+    font-size: $fs-sm;
+    font-weight: 600;
+    color: $text-light;
+    letter-spacing: 0.03em;
+  }
+
+  input,
+  textarea {
+    padding: $spacing-md $spacing-lg;
+    background: rgba($secondary, 0.5);
+    border: 1px solid $border;
+    border-radius: $radius-md;
+    color: $text;
+    font-family: $font-body;
+    font-size: $fs-base;
+    transition: $transition-fast;
+    outline: none;
+    resize: vertical;
+    width: 100%;
+
+    &::placeholder { color: rgba($text-muted, 0.5); }
+
+    &:focus {
+      border-color: rgba($primary, 0.6);
+      background: rgba($surface, 0.6);
+      box-shadow: 0 0 0 3px rgba($primary, 0.1);
+    }
+
+    &.error {
+      border-color: rgba($error, 0.6);
+
+      &:focus {
+        box-shadow: 0 0 0 3px rgba($error, 0.1);
+      }
+    }
+  }
+
+  textarea {
+    min-height: 150px;
+  }
+}
+
+.field-error {
+  font-size: $fs-xs;
+  color: $error;
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+}
+
+.submit-btn {
+  width: 100%;
+  justify-content: center;
+  font-size: $fs-base;
+  padding: $spacing-md $spacing-xl;
+
+  &:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+    transform: none !important;
+  }
+}
+
+.spinner {
+  width: 18px;
+  height: 18px;
+  border: 2px solid rgba($secondary, 0.3);
+  border-top-color: $secondary;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+}

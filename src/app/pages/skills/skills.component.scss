@@ -1,0 +1,190 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.skills-page {
+  position: relative;
+  min-height: 100vh;
+  padding-top: 120px;
+}
+
+.page-label {
+  display: inline-block;
+  font-size: $fs-xs;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: $primary;
+  margin-bottom: $spacing-md;
+}
+
+// ─── Skills container ─────────────────────
+.skills-container {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-4xl;
+  margin-bottom: $spacing-5xl;
+}
+
+.skill-category {
+  animation: fadeInUp 0.6s ease forwards;
+}
+
+// ─── Category header ──────────────────────
+.category-header {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  margin-bottom: $spacing-2xl;
+
+  .category-icon {
+    font-size: 1.5rem;
+  }
+
+  h2 {
+    font-family: $font-display;
+    font-size: $fs-xl;
+    font-weight: 700;
+    color: $text;
+    white-space: nowrap;
+  }
+
+  .category-line {
+    flex: 1;
+    height: 1px;
+    background: $border;
+    border-radius: $radius-full;
+  }
+}
+
+// ─── Skills grid ──────────────────────────
+.skills-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: $spacing-lg;
+
+  @include respond-to('md') {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @include respond-to('xl') {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+// ─── Skill item ───────────────────────────
+.skill-item {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.skill-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .skill-name {
+    font-size: $fs-sm;
+    font-weight: 600;
+    color: $text;
+  }
+
+  .skill-level {
+    font-family: $font-mono;
+    font-size: $fs-xs;
+    color: $primary;
+    font-weight: 700;
+  }
+}
+
+.skill-bar {
+  width: 100%;
+  height: 6px;
+  background: rgba($surface-alt, 0.5);
+  border-radius: $radius-full;
+  overflow: hidden;
+}
+
+.skill-fill {
+  height: 100%;
+  background: $gradient-gold;
+  border-radius: $radius-full;
+  width: 0;
+  animation: growWidth 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+  animation-delay: 0.3s;
+
+  @keyframes growWidth {
+    from { width: 0; }
+    to   { width: var(--level); }
+  }
+}
+
+// ─── Tech cloud ───────────────────────────
+.tech-cloud-section {
+  padding-top: $spacing-4xl;
+  border-top: 1px solid $border;
+  text-align: center;
+}
+
+.cloud-title {
+  font-family: $font-display;
+  font-size: $fs-2xl;
+  font-weight: 700;
+  margin-bottom: $spacing-3xl;
+}
+
+.tech-cloud {
+  display: flex;
+  flex-wrap: wrap;
+  gap: $spacing-md;
+  justify-content: center;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.tech-cloud-badge {
+  padding: $spacing-sm $spacing-lg;
+  border-radius: $radius-full;
+  font-weight: 600;
+  cursor: default;
+  transition: $transition-fast;
+  border: 1px solid;
+
+  &.tier-1 {
+    font-size: $fs-base;
+    background: rgba($primary, 0.15);
+    border-color: rgba($primary, 0.4);
+    color: $primary-light;
+
+    &:hover {
+      background: rgba($primary, 0.25);
+      transform: scale(1.08);
+    }
+  }
+
+  &.tier-2 {
+    font-size: $fs-sm;
+    background: rgba($surface-alt, 0.5);
+    border-color: rgba($text-muted, 0.3);
+    color: $text-light;
+
+    &:hover {
+      border-color: $primary;
+      color: $primary;
+      transform: scale(1.05);
+    }
+  }
+
+  &.tier-3 {
+    font-size: $fs-xs;
+    background: rgba($surface, 0.5);
+    border-color: rgba($text-muted, 0.2);
+    color: $text-muted;
+
+    &:hover {
+      border-color: $border-hover;
+      color: $text-light;
+      transform: scale(1.03);
+    }
+  }
+}
