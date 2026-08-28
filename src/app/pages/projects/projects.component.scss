@@ -39,9 +39,9 @@
   transition: $transition-fast;
 
   &:hover {
-    border-color: $primary;
-    color: $primary;
-    background: rgba($primary, 0.05);
+    border-color: var(--gold-title);
+    color: var(--gold-title);
+    background: rgba(201, 168, 76, 0.1);
   }
 
   &.active {
@@ -188,7 +188,7 @@
 
 .project-content p {
   font-size: $fs-sm;
-  color: $text-muted;
+  color: var(--text-muted);
   line-height: 1.7;
 }
 

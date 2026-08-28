@@ -27,9 +27,9 @@ $gradient-gold:    linear-gradient(135deg, $primary, $primary-light);
 $gradient-dark:    linear-gradient(135deg, $secondary, $surface-alt);
 $gradient-surface: linear-gradient(180deg, $secondary 0%, $surface 100%);
 
-// Typography
-$font-display: 'Playfair Display', Georgia, serif;
-$font-body:    'Inter', system-ui, sans-serif;
+// Typography - Single modern unified font
+$font-display: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+$font-body:    'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
 $font-mono:    'JetBrains Mono', 'Fira Code', monospace;
 
 // Font sizes

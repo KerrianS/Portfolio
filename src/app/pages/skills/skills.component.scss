@@ -44,7 +44,7 @@
     font-family: $font-display;
     font-size: $fs-xl;
     font-weight: 700;
-    color: $text;
+    color: var(--text);
     white-space: nowrap;
   }
 
@@ -86,13 +86,13 @@
   .skill-name {
     font-size: $fs-sm;
     font-weight: 600;
-    color: $text;
+    color: var(--text);
   }
 
   .skill-level {
     font-family: $font-mono;
     font-size: $fs-xs;
-    color: $primary;
+    color: var(--gold-title);
     font-weight: 700;
   }
 }
@@ -152,38 +152,38 @@
 
   &.tier-1 {
     font-size: $fs-base;
-    background: rgba($primary, 0.15);
-    border-color: rgba($primary, 0.4);
-    color: $primary-light;
+    background: rgba(201, 168, 76, 0.15);
+    border-color: var(--border);
+    color: var(--gold-title);
 
     &:hover {
-      background: rgba($primary, 0.25);
+      background: rgba(201, 168, 76, 0.25);
       transform: scale(1.08);
     }
   }
 
   &.tier-2 {
     font-size: $fs-sm;
-    background: rgba($surface-alt, 0.5);
-    border-color: rgba($text-muted, 0.3);
-    color: $text-light;
+    background: var(--badge-bg);
+    border-color: var(--border);
+    color: var(--badge-text);
 
     &:hover {
-      border-color: $primary;
-      color: $primary;
+      border-color: var(--gold-title);
+      color: var(--gold-title);
       transform: scale(1.05);
     }
   }
 
   &.tier-3 {
     font-size: $fs-xs;
-    background: rgba($surface, 0.5);
-    border-color: rgba($text-muted, 0.2);
-    color: $text-muted;
+    background: var(--badge-bg);
+    border-color: var(--border);
+    color: var(--text-muted);
 
     &:hover {
-      border-color: $border-hover;
-      color: $text-light;
+      border-color: var(--gold-title);
+      color: var(--text);
       transform: scale(1.03);
     }
   }

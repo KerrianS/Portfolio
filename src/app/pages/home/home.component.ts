@@ -180,19 +180,19 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   featuredProjects = this.projectStateService.featuredProjects;
 
-  mainTechs = ['Angular', 'React', 'TypeScript', 'Node.js', 'Java', 'Python'];
+  mainTechs = ['Angular', 'React', 'TypeScript', 'Node.js', 'C#', 'Python'];
 
   stats = [
     { value: '6+', label: 'Projets réalisés' },
     { value: '10+', label: 'Technologies maîtrisées' },
-    { value: '2+', label: "Années d'expérience" },
+    { value: '3+', label: "Années d'expérience" },
     { value: '100%', label: 'Passion & engagement' },
   ];
 
   private roles = [
     'Software Engineer',
     'Développeur Full-Stack',
-    'Passionné Angular',
+    'Passionné ReactJS',
     'Problem Solver',
   ];
 
@@ -201,7 +201,7 @@ export class HomeComponent implements OnInit, OnDestroy {
   private isDeleting = false;
   private typeTimer?: ReturnType<typeof setTimeout>;
 
-  constructor(private readonly projectStateService: ProjectStateService) {}
+  constructor(private readonly projectStateService: ProjectStateService) { }
 
   ngOnInit() {
     this.typeRole();
@@ -213,25 +213,31 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   private typeRole() {
     const currentRole = this.roles[this.roleIndex];
-    const speed = this.isDeleting ? 60 : 100;
 
-    if (!this.isDeleting && this.charIndex <= currentRole.length) {
-      this.displayedRole.set(currentRole.slice(0, this.charIndex++));
-    } else if (this.isDeleting && this.charIndex >= 0) {
-      this.displayedRole.set(currentRole.slice(0, this.charIndex--));
+    if (!this.isDeleting) {
+      this.displayedRole.set(currentRole.slice(0, this.charIndex));
+      this.charIndex++;
+
+      if (this.charIndex > currentRole.length) {
+        // Pausa de 2 segundos una vez la palabra esté completa
+        this.isDeleting = true;
+        this.typeTimer = setTimeout(() => this.typeRole(), 2000);
+        return;
+      }
+      this.typeTimer = setTimeout(() => this.typeRole(), 100);
+    } else {
+      this.displayedRole.set(currentRole.slice(0, this.charIndex));
+      this.charIndex--;
+
+      if (this.charIndex < 0) {
+        // Pasar a la siguiente palabra
+        this.isDeleting = false;
+        this.roleIndex = (this.roleIndex + 1) % this.roles.length;
+        this.charIndex = 0;
+        this.typeTimer = setTimeout(() => this.typeRole(), 300);
+        return;
+      }
+      this.typeTimer = setTimeout(() => this.typeRole(), 50);
     }
-
-    if (!this.isDeleting && this.charIndex > currentRole.length) {
-      this.isDeleting = true;
-      this.typeTimer = setTimeout(() => this.typeRole(), 2000);
-      return;
-    }
-
-    if (this.isDeleting && this.charIndex < 0) {
-      this.isDeleting = false;
-      this.roleIndex = (this.roleIndex + 1) % this.roles.length;
-    }
-
-    this.typeTimer = setTimeout(() => this.typeRole(), speed);
   }
 }

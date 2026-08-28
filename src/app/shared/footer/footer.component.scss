@@ -22,16 +22,16 @@
 // ─── Brand ────────────────────────────────
 .footer-brand {
   .footer-logo {
-    font-family: $font-display;
-    font-size: 2rem;
-    font-weight: 900;
-    color: $text;
-    text-decoration: none;
     display: inline-block;
     margin-bottom: $spacing-md;
 
-    span {
-      @include gold-text;
+    .footer-logo-img {
+      height: 48px;
+      width: 48px;
+      object-fit: cover;
+      border-radius: 50%;
+      border: 1px solid rgba(245, 158, 11, 0.4);
+      box-shadow: 0 0 12px rgba(245, 158, 11, 0.25);
     }
   }
 

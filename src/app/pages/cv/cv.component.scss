@@ -13,11 +13,12 @@
   flex-wrap: wrap;
   gap: 1.5rem;
   padding: 1.25rem 1.75rem;
-  background: rgba(15, 23, 42, 0.6);
+  background: var(--bg-card);
   backdrop-filter: blur(16px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   margin-bottom: 2rem;
+  box-shadow: var(--shadow-card);
 
   .cv-info {
     display: flex;
@@ -46,11 +47,11 @@
 
 .cv-viewer-card {
   width: 100%;
-  background: rgba(15, 23, 42, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+  background: var(--bg-card);
+  border: 1px solid var(--border);
   border-radius: var(--radius-xl);
   overflow: hidden;
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--shadow-card);
   margin-bottom: 4rem;
 
   .pdf-object {
@@ -92,18 +93,19 @@
 
   .resume-block {
     padding: 2rem;
-    background: rgba(30, 41, 59, 0.4);
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: var(--bg-card);
+    border: 1px solid var(--border);
     border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-card);
 
     h2 {
       font-size: 1.4rem;
       margin-bottom: 1rem;
-      color: var(--gold-400);
+      color: var(--gold-title);
     }
 
     p {
-      color: var(--text-secondary);
+      color: var(--text);
       line-height: 1.7;
     }
   }
@@ -136,9 +138,10 @@
 
   .experience-card, .edu-card {
     padding: 1.5rem;
-    background: rgba(15, 23, 42, 0.5);
-    border: 1px solid rgba(255, 255, 255, 0.06);
+    background: var(--bg-card);
+    border: 1px solid var(--border);
     border-radius: var(--radius-md);
+    box-shadow: var(--shadow-card);
 
     .exp-header {
       display: flex;
@@ -205,13 +208,14 @@
 
     .lang-item {
       padding: 1rem 1.25rem;
-      background: rgba(15, 23, 42, 0.5);
-      border: 1px solid rgba(255, 255, 255, 0.06);
+      background: var(--bg-card);
+      border: 1px solid var(--border);
       border-radius: var(--radius-md);
-      color: var(--text-secondary);
+      color: var(--text);
+      box-shadow: var(--shadow-card);
 
       strong {
-        color: var(--gold-400);
+        color: var(--gold-title);
       }
     }
   }
