@@ -99,15 +99,15 @@ export const SEEDED_SKILL_CATEGORIES: SkillCategoryEntity[] = [
     new SkillEntity('TypeScript',  buildSkillLevel(88), 'typescript'),
     new SkillEntity('JavaScript',  buildSkillLevel(90), 'javascript'),
     new SkillEntity('SCSS / CSS',  buildSkillLevel(85), 'css'),
-    new SkillEntity('Vue.js',      buildSkillLevel(60), 'vue'),
+    new SkillEntity('Svelte',      buildSkillLevel(65), 'svelte'),
   ]),
   new SkillCategoryEntity('Backend', 'backend', [
     new SkillEntity('Node.js',       buildSkillLevel(82), 'nodejs'),
     new SkillEntity('Python',        buildSkillLevel(78), 'python'),
     new SkillEntity('Java / Spring', buildSkillLevel(75), 'java'),
     new SkillEntity('PHP / Symfony', buildSkillLevel(70), 'php'),
-    new SkillEntity('NestJS',        buildSkillLevel(72), 'nestjs'),
-    new SkillEntity('Laravel',       buildSkillLevel(65), 'laravel'),
+    new SkillEntity('.NET',          buildSkillLevel(75), 'dotnet'),
+    new SkillEntity('C#',            buildSkillLevel(78), 'csharp'),
   ]),
   new SkillCategoryEntity('Bases de données', 'database', [
     new SkillEntity('PostgreSQL',    buildSkillLevel(80), 'postgresql'),
@@ -117,10 +117,15 @@ export const SEEDED_SKILL_CATEGORIES: SkillCategoryEntity[] = [
   new SkillCategoryEntity('DevOps & Outils', 'devops', [
     new SkillEntity('Git / GitHub', buildSkillLevel(88), 'git'),
     new SkillEntity('Docker',       buildSkillLevel(75), 'docker'),
-    new SkillEntity('Linux',        buildSkillLevel(70), 'linux'),
+    new SkillEntity('Postman',      buildSkillLevel(85), 'postman'),
+    new SkillEntity('Jira',         buildSkillLevel(80), 'jira'),
+    new SkillEntity('Windows',      buildSkillLevel(90), 'windows'),
+    new SkillEntity('Linux / Mac',  buildSkillLevel(75), 'linux'),
   ]),
   new SkillCategoryEntity('ERP & Métier', 'erp', [
-    new SkillEntity('Odoo',         buildSkillLevel(82), 'odoo'),
+    new SkillEntity('Odoo',         buildSkillLevel(85), 'odoo'),
+    new SkillEntity('Sage',         buildSkillLevel(75), 'erp'),
+    new SkillEntity('Navision',     buildSkillLevel(70), 'erp'),
     new SkillEntity('Python (Odoo)', buildSkillLevel(78), 'python'),
   ]),
 ];

@@ -91,7 +91,7 @@ import { SectionHeaderComponent } from '../../shared/components/section-header/s
                     <li>App Electron.js & Python : retranscription en temps réel MS Teams avec Whisper et comptes rendus Mistral LLM.</li>
                     <li>App Mobile Flutter connectée à l'API Odoo pour chauffeurs (GPS Waze/Maps, bons de livraison, plannings).</li>
                     <li>Migration site web historique PHP 5 vers PHP 8 natif (+100 utilisateurs).</li>
-                    <li>Lead technique : pilotage projets, encadrement de 3 alternants.</li>
+                    <li>Lead technique : pilotage projets, encadrement de 2 alternants.</li>
                   </ul>
                 </div>
 
