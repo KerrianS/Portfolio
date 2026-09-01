@@ -2,10 +2,11 @@
 @use '../../../styles/mixins' as *;
 
 .footer {
-  background: darken($secondary, 3%);
-  border-top: 1px solid $border;
+  background: var(--bg-surface-alt);
+  border-top: 1px solid var(--border);
   padding: $spacing-4xl 0 $spacing-xl;
   margin-top: $spacing-5xl;
+  transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .footer-grid {
@@ -37,7 +38,7 @@
 
   p {
     font-size: $fs-sm;
-    color: $text-muted;
+    color: var(--text-muted);
     line-height: 1.7;
     max-width: 300px;
     margin-bottom: $spacing-xl;
@@ -55,10 +56,10 @@
   justify-content: center;
   width: 40px;
   height: 40px;
-  background: rgba($primary, 0.08);
-  border: 1px solid $border;
+  background: rgba(201, 168, 76, 0.08);
+  border: 1px solid var(--border);
   border-radius: $radius-md;
-  color: $text-muted;
+  color: var(--text-muted);
   transition: $transition-normal;
 
   svg {
@@ -67,9 +68,9 @@
   }
 
   &:hover {
-    background: rgba($primary, 0.2);
-    border-color: $primary;
-    color: $primary;
+    background: rgba(201, 168, 76, 0.2);
+    border-color: var(--gold-title);
+    color: var(--gold-title);
     transform: translateY(-3px);
   }
 }
@@ -83,7 +84,7 @@
     font-weight: 700;
     letter-spacing: 0.15em;
     text-transform: uppercase;
-    color: $primary;
+    color: var(--gold-title);
     margin-bottom: $spacing-lg;
   }
 
@@ -101,22 +102,22 @@
       svg {
         width: 14px;
         height: 14px;
-        color: $primary;
+        color: var(--gold-title);
         flex-shrink: 0;
       }
 
       a {
         font-size: $fs-sm;
-        color: $text-muted;
+        color: var(--text-muted);
         text-decoration: none;
         transition: $transition-fast;
 
-        &:hover { color: $primary; }
+        &:hover { color: var(--gold-title); }
       }
 
       span {
         font-size: $fs-sm;
-        color: $text-muted;
+        color: var(--text-muted);
       }
     }
   }
@@ -131,26 +132,16 @@
 // ─── Bottom bar ───────────────────────────
 .footer-bottom {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
   align-items: center;
-  gap: $spacing-sm;
   padding-top: $spacing-xl;
-  border-top: 1px solid $border;
+  border-top: 1px solid var(--border);
   text-align: center;
-
-  @include respond-to('md') {
-    flex-direction: row;
-    justify-content: space-between;
-  }
 
   p {
     font-size: $fs-xs;
-    color: $text-muted;
+    color: var(--text-muted);
 
-    span { color: $primary; }
-  }
-
-  .made-with span {
-    color: #ef4444;
+    span { color: var(--gold-title); }
   }
 }

@@ -2,11 +2,12 @@ import { Component, OnInit, OnDestroy, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { ProjectStateService } from '../../presentation/services/project-state.service';
+import { SectionHeaderComponent } from '../../shared/components/section-header/section-header.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, SectionHeaderComponent],
   template: `
     <div class="home-page">
       <!-- Grid background -->
@@ -20,7 +21,7 @@ import { ProjectStateService } from '../../presentation/services/project-state.s
             <!-- Badge -->
             <div class="hero-badge animate-fade-up">
               <span class="badge-dot"></span>
-              Disponible pour de nouveaux projets
+              À l'écoute d'opportunités en CDI / CDD
             </div>
 
             <!-- Greeting -->
@@ -41,7 +42,7 @@ import { ProjectStateService } from '../../presentation/services/project-state.s
             <!-- Description -->
             <p class="hero-description animate-fade-up delay-4">
               Je conçois et développe des applications web <span class="text-gold">élégantes</span> et <span class="text-gold">performantes</span>,
-              du frontend Angular/React jusqu'au backend Node.js, Java & Python.
+              du frontend Angular/React jusqu'au backend Node.js, C# & Python.
             </p>
 
             <!-- CTAs -->
@@ -78,13 +79,13 @@ import { ProjectStateService } from '../../presentation/services/project-state.s
               <pre class="code-body"><code><span class="kw">const</span> <span class="var">developer</span> = &#123;
   <span class="prop">name</span>: <span class="str">'Kerrian'</span>,
   <span class="prop">role</span>: <span class="str">'Software Engineer'</span>,
-  <span class="prop">location</span>: <span class="str">'France 🇫🇷'</span>,
+  <span class="prop">location</span>: <span class="str">'France'</span>,
   <span class="prop">skills</span>: [
     <span class="str">'Angular'</span>, <span class="str">'React'</span>,
-    <span class="str">'Node.js'</span>, <span class="str">'Java'</span>,
+    <span class="str">'Node.js'</span>, <span class="str">'C#'</span>,
     <span class="str">'Python'</span>, <span class="str">'Docker'</span>
   ],
-  <span class="prop">passion</span>: <span class="str">'Clean code ✨'</span>,
+  <span class="prop">passion</span>: <span class="str">'Clean Code'</span>,
   <span class="prop">available</span>: <span class="bool">true</span>
 &#125;;</code></pre>
             </div>
@@ -129,11 +130,11 @@ import { ProjectStateService } from '../../presentation/services/project-state.s
       <!-- Featured projects preview -->
       <section class="featured-section section">
         <div class="container">
-          <div class="section-header">
-            <h2>Projets <span>en vedette</span></h2>
-            <div class="section-line"></div>
-            <p>Une sélection de mes réalisations les plus récentes</p>
-          </div>
+          <app-section-header
+            title="Projets"
+            highlight="en vedette"
+            subtitle="Une sélection de mes réalisations les plus récentes"
+          ></app-section-header>
 
           <div class="projects-preview">
             @for (project of featuredProjects(); track project.id) {
@@ -184,7 +185,7 @@ export class HomeComponent implements OnInit, OnDestroy {
 
   stats = [
     { value: '6+', label: 'Projets réalisés' },
-    { value: '10+', label: 'Technologies maîtrisées' },
+    { value: '10+', label: 'Technologies utilisées' },
     { value: '3+', label: "Années d'expérience" },
     { value: '100%', label: 'Passion & engagement' },
   ];

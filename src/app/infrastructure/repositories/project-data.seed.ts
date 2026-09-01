@@ -93,7 +93,7 @@ export const SEEDED_PROJECTS: ProjectEntity[] = [
 ];
 
 export const SEEDED_SKILL_CATEGORIES: SkillCategoryEntity[] = [
-  new SkillCategoryEntity('Frontend', '🎨', [
+  new SkillCategoryEntity('Frontend', 'frontend', [
     new SkillEntity('Angular',     buildSkillLevel(90), 'angular'),
     new SkillEntity('React',       buildSkillLevel(80), 'react'),
     new SkillEntity('TypeScript',  buildSkillLevel(88), 'typescript'),
@@ -101,7 +101,7 @@ export const SEEDED_SKILL_CATEGORIES: SkillCategoryEntity[] = [
     new SkillEntity('SCSS / CSS',  buildSkillLevel(85), 'css'),
     new SkillEntity('Vue.js',      buildSkillLevel(60), 'vue'),
   ]),
-  new SkillCategoryEntity('Backend', '⚙️', [
+  new SkillCategoryEntity('Backend', 'backend', [
     new SkillEntity('Node.js',       buildSkillLevel(82), 'nodejs'),
     new SkillEntity('Python',        buildSkillLevel(78), 'python'),
     new SkillEntity('Java / Spring', buildSkillLevel(75), 'java'),
@@ -109,17 +109,17 @@ export const SEEDED_SKILL_CATEGORIES: SkillCategoryEntity[] = [
     new SkillEntity('NestJS',        buildSkillLevel(72), 'nestjs'),
     new SkillEntity('Laravel',       buildSkillLevel(65), 'laravel'),
   ]),
-  new SkillCategoryEntity('Bases de données', '🗄️', [
+  new SkillCategoryEntity('Bases de données', 'database', [
     new SkillEntity('PostgreSQL',    buildSkillLevel(80), 'postgresql'),
     new SkillEntity('MySQL / MariaDB', buildSkillLevel(82), 'mysql'),
     new SkillEntity('MongoDB',       buildSkillLevel(72), 'mongodb'),
   ]),
-  new SkillCategoryEntity('DevOps & Outils', '🔧', [
+  new SkillCategoryEntity('DevOps & Outils', 'devops', [
     new SkillEntity('Git / GitHub', buildSkillLevel(88), 'git'),
     new SkillEntity('Docker',       buildSkillLevel(75), 'docker'),
     new SkillEntity('Linux',        buildSkillLevel(70), 'linux'),
   ]),
-  new SkillCategoryEntity('ERP & Métier', '🏢', [
+  new SkillCategoryEntity('ERP & Métier', 'erp', [
     new SkillEntity('Odoo',         buildSkillLevel(82), 'odoo'),
     new SkillEntity('Python (Odoo)', buildSkillLevel(78), 'python'),
   ]),

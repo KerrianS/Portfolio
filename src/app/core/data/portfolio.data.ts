@@ -84,7 +84,7 @@ export const PROJECTS: Project[] = [
 export const SKILL_CATEGORIES: SkillCategory[] = [
   {
     name: 'Frontend & UI',
-    icon: '🎨',
+    icon: 'frontend',
     skills: [
       { name: 'React.js', level: 90, icon: 'react' },
       { name: 'Angular', level: 85, icon: 'angular' },
@@ -96,7 +96,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
   },
   {
     name: 'Backend & Frameworks',
-    icon: '⚙️',
+    icon: 'backend',
     skills: [
       { name: 'Python', level: 90, icon: 'python' },
       { name: 'Java (SpringBoot)', level: 82, icon: 'java' },
@@ -107,7 +107,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
   },
   {
     name: 'IA & Automatisation',
-    icon: '🤖',
+    icon: 'ai',
     skills: [
       { name: 'Protocole MCP (FastMCP)', level: 92, icon: 'python' },
       { name: 'n8n & Webhooks', level: 90, icon: 'n8n' },
@@ -117,7 +117,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
   },
   {
     name: 'ERP & Bases de données',
-    icon: '🗄️',
+    icon: 'database',
     skills: [
       { name: 'ERP Odoo (Modules custom)', level: 90, icon: 'odoo' },
       { name: 'PostgreSQL', level: 88, icon: 'postgresql' },
@@ -127,7 +127,7 @@ export const SKILL_CATEGORIES: SkillCategory[] = [
   },
   {
     name: 'DevOps & Qualité',
-    icon: '🔧',
+    icon: 'devops',
     skills: [
       { name: 'OAuth Keycloak', level: 88, icon: 'keycloak' },
       { name: 'Docker', level: 82, icon: 'docker' },

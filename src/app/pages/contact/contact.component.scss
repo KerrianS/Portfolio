@@ -5,16 +5,10 @@
   position: relative;
   min-height: 100vh;
   padding-top: 120px;
-}
 
-.page-label {
-  display: inline-block;
-  font-size: $fs-xs;
-  font-weight: 700;
-  letter-spacing: 0.2em;
-  text-transform: uppercase;
-  color: $primary;
-  margin-bottom: $spacing-md;
+  @media (max-width: 768px) {
+    padding-top: 100px;
+  }
 }
 
 // ─── Grid ─────────────────────────────────
@@ -41,13 +35,16 @@
   align-items: center;
   gap: $spacing-lg;
   padding: $spacing-lg;
-  @include glass-card;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: $radius-lg;
+  box-shadow: var(--shadow-card);
   text-decoration: none;
   transition: $transition-normal;
 
   &:hover {
     transform: translateX(6px);
-    border-color: $border-hover;
+    border-color: var(--border-hover);
   }
 }
 
@@ -55,21 +52,22 @@
   @include flex-center;
   width: 48px;
   height: 48px;
-  background: rgba($primary, 0.1);
-  border: 1px solid $border;
+  background: rgba(201, 168, 76, 0.12);
+  border: 1px solid var(--border);
   border-radius: $radius-md;
-  color: $primary;
+  color: var(--gold-title);
   flex-shrink: 0;
 
-  svg { width: 20px; height: 20px; }
+  svg { width: 22px; height: 22px; }
 }
 
 .contact-item-label {
   display: block;
   font-size: $fs-xs;
-  color: $text-muted;
+  color: var(--text-muted);
   text-transform: uppercase;
   letter-spacing: 0.08em;
+  font-weight: 600;
   margin-bottom: 2px;
 }
 
@@ -77,7 +75,7 @@
   display: block;
   font-size: $fs-sm;
   font-weight: 600;
-  color: $text;
+  color: var(--text);
 }
 
 // ─── Availability ─────────────────────────
@@ -86,42 +84,47 @@
   align-items: center;
   gap: $spacing-md;
   padding: $spacing-lg;
-  @include glass-card;
-  border-color: rgba($success, 0.3);
-  background: rgba($success, 0.05);
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  border-radius: $radius-lg;
+  box-shadow: var(--shadow-card);
   margin-top: $spacing-sm;
 
   h4 {
     font-size: $fs-sm;
     font-weight: 700;
-    color: $success;
+    color: #10B981;
     margin-bottom: 4px;
   }
 
   p {
     font-size: $fs-xs;
-    color: $text-muted;
+    color: var(--text-muted);
+    font-weight: 500;
   }
 }
 
 .availability-dot {
   width: 12px;
   height: 12px;
-  background: $success;
+  background: #10B981;
   border-radius: 50%;
   flex-shrink: 0;
-  animation: pulse-gold 2s ease-in-out infinite;
-  box-shadow: 0 0 0 0 rgba($success, 0.4);
+  animation: pulse-green 2s ease-in-out infinite;
+  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4);
 
-  @keyframes pulse-gold {
-    0%, 100% { box-shadow: 0 0 0 0 rgba($success, 0.4); }
-    50%       { box-shadow: 0 0 0 8px rgba($success, 0); }
+  @keyframes pulse-green {
+    0%, 100% { box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
+    50%       { box-shadow: 0 0 0 8px rgba(16, 185, 129, 0); }
   }
 }
 
 // ─── Form ─────────────────────────────────
 .contact-form-wrapper {
-  @include glass-card;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: $radius-lg;
+  box-shadow: var(--shadow-card);
   padding: $spacing-2xl;
 }
 
@@ -149,17 +152,17 @@
   label {
     font-size: $fs-sm;
     font-weight: 600;
-    color: $text-light;
-    letter-spacing: 0.03em;
+    color: var(--text);
+    letter-spacing: 0.02em;
   }
 
   input,
   textarea {
-    padding: $spacing-md $spacing-lg;
-    background: rgba($secondary, 0.5);
-    border: 1px solid $border;
+    padding: 0.85rem 1.15rem;
+    background: var(--bg-input);
+    border: 1.5px solid var(--border-input);
     border-radius: $radius-md;
-    color: $text;
+    color: var(--text);
     font-family: $font-body;
     font-size: $fs-base;
     transition: $transition-fast;
@@ -167,19 +170,22 @@
     resize: vertical;
     width: 100%;
 
-    &::placeholder { color: rgba($text-muted, 0.5); }
+    &::placeholder {
+      color: var(--text-placeholder);
+      opacity: 1;
+    }
 
     &:focus {
-      border-color: rgba($primary, 0.6);
-      background: rgba($surface, 0.6);
-      box-shadow: 0 0 0 3px rgba($primary, 0.1);
+      border-color: var(--gold-title);
+      background: var(--bg-card);
+      box-shadow: 0 0 0 3px rgba(201, 168, 76, 0.18);
     }
 
     &.error {
-      border-color: rgba($error, 0.6);
+      border-color: #EF4444;
 
       &:focus {
-        box-shadow: 0 0 0 3px rgba($error, 0.1);
+        box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.15);
       }
     }
   }
@@ -191,10 +197,12 @@
 
 .field-error {
   font-size: $fs-xs;
-  color: $error;
+  color: #EF4444;
   display: flex;
   align-items: center;
   gap: $spacing-xs;
+  font-weight: 500;
+  margin-top: 2px;
 }
 
 .submit-btn {

@@ -3,23 +3,24 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { ProjectStateService } from '../../presentation/services/project-state.service';
 import { ProjectFilterLabel } from '../../shared-kernel/constants/filter.constants';
+import { SectionHeaderComponent } from '../../shared/components/section-header/section-header.component';
 
 @Component({
   selector: 'app-projects',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, SectionHeaderComponent],
   template: `
     <div class="page-enter">
       <section class="projects-page section">
         <div class="bg-grid"></div>
         <div class="container">
-          <!-- Header -->
-          <div class="section-header">
-            <span class="page-label">Portfolio</span>
-            <h1>Mes <span>Projets</span></h1>
-            <div class="section-line"></div>
-            <p>Découvrez une sélection de mes réalisations — du frontend élégant au backend robuste.</p>
-          </div>
+          <!-- Header (Reusable Component) -->
+          <app-section-header
+            label="Portfolio"
+            title="Mes"
+            highlight="Projets"
+            subtitle="Découvrez une sélection de mes réalisations — du frontend élégant au backend robuste."
+          ></app-section-header>
 
           <!-- Filters -->
           <div class="filters">
