@@ -40,6 +40,6 @@ testem.log
 Thumbs.db
 
 # Sensitive / Personal assets
-src/assets/cv/
-*.pdf
+# (Le CV dans src/assets est inclus pour le téléchargement et la vue en ligne)
+!src/assets/CV_SALAUN_Kerrian.pdf
 
