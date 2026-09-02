@@ -123,8 +123,6 @@ export class SkillsComponent {
     { name: 'REST API', tier: 2 },
     { name: 'Odoo', tier: 2 },
     { name: 'Sage', tier: 3 },
-    { name: 'Navision', tier: 3 },
-    { name: 'Redux', tier: 3 },
-    { name: 'Swagger', tier: 3 },
+    { name: 'Navision', tier: 3 }
   ];
 }
